@@ -10,22 +10,29 @@ input.addEventListener("change", (e) => {
 });
 
 btn.addEventListener("click", async () => {
-
   if (!imageFile) {
-    alert("اختر صورة أولًا");
+    alert("اختر صورة أولاً");
     return;
   }
 
+  btn.disabled = true;
   btn.textContent = "جاري إزالة الخلفية...";
 
-  const blob = await removeBackground(imageFile);
+  try {
+    const blob = await removeBackground(imageFile);
 
-  const url = URL.createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
 
-  preview.innerHTML = `<img src="${url}">`;
+    preview.innerHTML = `<img src="${url}" alt="الصورة بعد إزالة الخلفية">`;
 
-  downloadBtn.href = url;
-  downloadBtn.style.display = "block";
+    downloadBtn.href = url;
+    downloadBtn.style.display = "block";
 
+  } catch (error) {
+    console.error(error);
+    alert("حدث خطأ: " + error.message);
+  }
+
+  btn.disabled = false;
   btn.textContent = "إزالة الخلفية";
 });
