@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>إزالة خلفية الصور مجانًا | WebBag</title>
 
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="أداة WebBag المجانية لإزالة خلفية الصور بالذكاء الاصطناعي مباشرة من المتصفح دون الحاجة إلى برامج أو تسجيل حساب.">
 
-  <script src="https://cdn.jsdelivr.net/npm/@imgly/background-removal/dist/browser.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-  <h1>إزالة خلفية الصور مجانًا</h1>
+  <div class="container">
 
-  <input type="file" id="imageInput" accept="image/*">
+    <h1>إزالة خلفية الصور مجانًا</h1>
 
-  <button id="removeBtn">إزالة الخلفية</button>
+    <p>
+      ارفع صورتك ودع الذكاء الاصطناعي يزيل الخلفية تلقائيًا خلال ثوانٍ.
+    </p>
 
-  <div id="preview"></div>
+    <input type="file" id="imageInput" accept="image/*">
 
-  <a id="downloadBtn" download="webbag-background-removed.png" style="display:none;">
-    تنزيل الصورة
-  </a>
-</div>
+    <button id="removeBtn">
+      إزالة الخلفية
+    </button>
 
-<script src="app.js"></script>
+    <div id="preview"></div>
+
+    <a id="downloadBtn"
+       download="webbag-background-removed.png"
+       style="display:none;">
+      تنزيل الصورة
+    </a>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
 
 </body>
+
 </html>
