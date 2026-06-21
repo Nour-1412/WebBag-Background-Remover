@@ -1,4 +1,3 @@
-
 import { removeBackground } from "https://cdn.jsdelivr.net/npm/@imgly/background-removal/+esm";
 
 const input = document.getElementById("imageInput");
