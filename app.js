@@ -1,3 +1,6 @@
+
+import { removeBackground } from "https://cdn.jsdelivr.net/npm/@imgly/background-removal/+esm";
+
 const input = document.getElementById("imageInput");
 const btn = document.getElementById("removeBtn");
 const preview = document.getElementById("preview");
@@ -27,10 +30,9 @@ btn.addEventListener("click", async () => {
 
     downloadBtn.href = url;
     downloadBtn.style.display = "block";
-
   } catch (error) {
     console.error(error);
-    alert("حدث خطأ: " + error.message);
+    alert("حدث خطأ أثناء إزالة الخلفية");
   }
 
   btn.disabled = false;
