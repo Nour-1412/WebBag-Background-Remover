@@ -31,7 +31,7 @@ btn.addEventListener("click", async () => {
     downloadBtn.style.display = "block";
   } catch (error) {
     console.error(error);
-    alert("حدث خطأ أثناء إزالة الخلفية");
+    alert("حدث خطأ: " + error.message);
   }
 
   btn.disabled = false;
