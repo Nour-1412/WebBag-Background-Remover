@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -7,7 +8,8 @@
 
   <title>إزالة خلفية الصور مجانًا | WebBag</title>
 
-  <meta name="description" content="أداة WebBag المجانية لإزالة خلفية الصور بالذكاء الاصطناعي مباشرة من المتصفح دون الحاجة إلى برامج أو تسجيل حساب.">
+  <meta name="description"
+    content="أداة مجانية لإزالة خلفية الصور بالذكاء الاصطناعي مباشرة من المتصفح دون الحاجة إلى برامج أو تسجيل حساب.">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,21 +20,36 @@
 
     <h1>إزالة خلفية الصور مجانًا</h1>
 
-    <p>
+    <p class="subtitle">
       ارفع صورتك ودع الذكاء الاصطناعي يزيل الخلفية تلقائيًا خلال ثوانٍ.
     </p>
 
-    <input type="file" id="imageInput" accept="image/*">
+    <p class="note">
+      الصيغ المدعومة: JPG و PNG فقط — الحد الأقصى لحجم الصورة: 5 ميجابايت.
+    </p>
 
-    <button id="removeBtn">
-      إزالة الخلفية
-    </button>
+    <input type="file" id="imageInput" accept="image/jpeg,image/png">
+
+    <div id="originalPreview" style="display:none;">
+      <h3>الصورة الأصلية</h3>
+      <img id="originalImage" alt="الصورة الأصلية">
+    </div>
+
+    <button id="removeBtn">إزالة الخلفية</button>
+
+    <div id="loadingBox" style="display:none;">
+      <p id="loadingText">جاري إزالة الخلفية...</p>
+
+      <div class="progress-container">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </div>
 
     <div id="preview"></div>
 
     <a id="downloadBtn"
-       download="webbag-background-removed.png"
-       style="display:none;">
+      download="webbag-background-removed.png"
+      style="display:none;">
       تنزيل الصورة
     </a>
 
@@ -43,6 +60,3 @@
 </body>
 
 </html>
-<p class="note">
-  الصيغ المدعومة: JPG و PNG فقط — الحد الأقصى لحجم الصورة: 5 ميجابايت.
-</p>
