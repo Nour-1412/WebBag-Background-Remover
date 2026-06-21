@@ -1,3 +1,4 @@
+
 import { removeBackground } from "https://cdn.jsdelivr.net/npm/@imgly/background-removal/+esm";
 
 const input = document.getElementById("imageInput");
@@ -18,19 +19,8 @@ input.addEventListener("change", (e) => {
 
   if (!file) return;
 
-  const allowedTypes = ["image/jpeg", "image/png"];
-
-  if (!allowedTypes.includes(file.type)) {
-    alert("يرجى اختيار صورة بصيغة JPG أو PNG فقط.");
-
-    input.value = "";
-    imageFile = null;
-    return;
-  }
-
   if (file.size > 5 * 1024 * 1024) {
     alert("حجم الصورة كبير جدًا. يرجى اختيار صورة أقل من 5 ميجابايت.");
-
     input.value = "";
     imageFile = null;
     return;
@@ -64,13 +54,14 @@ btn.addEventListener("click", async () => {
       progress += 10;
       progressBar.style.width = progress + "%";
     }
-  }, 500);
+  }, 400);
 
   try {
-    const blob = await removeBackground(imageFile);
+    const normalizedImage = await convertToPng(imageFile);
+
+    const blob = await removeBackground(normalizedImage);
 
     clearInterval(timer);
-
     progressBar.style.width = "100%";
 
     const url = URL.createObjectURL(blob);
@@ -96,9 +87,36 @@ btn.addEventListener("click", async () => {
 
     console.error(error);
 
-    alert("تعذر معالجة الصورة. يرجى استخدام صورة بصيغة JPG أو PNG وبحجم مناسب.");
+    alert("تعذر معالجة الصورة حاليًا. جرّبي صورة أخرى أو حدّثي الصفحة.");
   }
 
   btn.disabled = false;
   btn.textContent = "إزالة الخلفية";
 });
+
+async function convertToPng(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      canvas.toBlob((blob) => {
+        if (blob) {
+          resolve(blob);
+        } else {
+          reject(new Error("فشل تحويل الصورة"));
+        }
+      }, "image/png");
+    };
+
+    img.onerror = () => reject(new Error("تعذر قراءة الصورة"));
+
+    img.src = URL.createObjectURL(file);
+  });
+}
