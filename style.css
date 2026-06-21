@@ -89,3 +89,8 @@ button:disabled {
   color: #444;
   margin-top: 20px;
 }
+.speed-note {
+  margin-top: 15px;
+  color: #666;
+  font-size: 14px;
+}
