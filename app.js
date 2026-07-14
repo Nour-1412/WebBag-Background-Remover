@@ -12,7 +12,11 @@ imageInput.addEventListener("change", () => {
 
     if (!file) return;
 
-    originalPreview.src = URL.createObjectURL(file);
+    const imageURL = URL.createObjectURL(file);
+
+originalPreview.src = imageURL;
+
+console.log(imageURL);
 });
 
 removeBtn.addEventListener("click", async () => {
