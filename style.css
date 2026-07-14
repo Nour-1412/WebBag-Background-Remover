@@ -110,3 +110,15 @@ img{
     max-width:100%;
     height:auto;
 }
+#originalPreview,
+#resultPreview{
+    width:100%;
+    max-width:250px;
+    min-height:250px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:auto;
+}
