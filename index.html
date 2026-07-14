@@ -4,11 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>إزالة الخلفية من الصور بالذكاء الاصطناعي | WebBag</title>
-
-    <meta name="description"
-        content="أزل خلفية أي صورة خلال ثوانٍ باستخدام الذكاء الاصطناعي مجانًا وبدون رفع الصور إلى أي خادم خارجي.">
+    <title>إزالة الخلفية من الصور | WebBag</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,16 +13,24 @@
 
     <div class="container">
 
-        <h1>
-            إزالة الخلفية من الصور بالذكاء الاصطناعي
-        </h1>
+        <div class="header">
 
-        <p class="description">
-            أزل خلفية أي صورة خلال ثوانٍ باستخدام الذكاء الاصطناعي،
-            مجانًا وبدون رفع صورك إلى أي خادم خارجي.
-        </p>
+            <h1>🖼️ إزالة الخلفية من الصور</h1>
 
-        <div class="upload-box">
+            <p>
+                أزل خلفية أي صورة خلال ثوانٍ باستخدام الذكاء الاصطناعي،
+                مجانًا وبدون رفع صورك إلى أي خادم خارجي.
+            </p>
+
+        </div>
+
+        <div class="upload-card">
+
+            <div class="upload-icon">
+                ☁️
+            </div>
+
+            <h2>اسحب الصورة هنا أو اختر صورة</h2>
 
             <input
                 type="file"
@@ -34,16 +38,33 @@
                 accept="image/*"
             >
 
-            <p>
-                اختر صورة للبدء
-            </p>
+        </div>
+
+        <div class="preview-section">
+
+            <div class="preview-box">
+                <h3>الصورة الأصلية</h3>
+                <img id="originalPreview">
+            </div>
+
+            <div class="preview-box">
+                <h3>بعد إزالة الخلفية</h3>
+                <img id="resultPreview">
+            </div>
 
         </div>
+
+        <button id="removeBtn">
+            إزالة الخلفية
+        </button>
+
+        <button id="downloadBtn">
+            تحميل الصورة PNG
+        </button>
 
     </div>
 
     <script src="app.js"></script>
 
 </body>
-
 </html>
