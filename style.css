@@ -7,15 +7,15 @@
 }
 
 body{
-    background:linear-gradient(
+    background: linear-gradient(
         135deg,
-        #2563EB,
+        #1E3A8A,
+        #4F46E5,
         #7C3AED,
-        #3B82F6
+        #2563EB
     );
 
     min-height:100vh;
-
     padding:30px;
 }
 
