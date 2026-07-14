@@ -16,6 +16,8 @@ imageInput.addEventListener("change", () => {
 
 originalPreview.src = imageURL;
 
+originalPreview.style.display = "block";
+
 console.log(imageURL);
 });
 
