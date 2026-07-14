@@ -1,4 +1,4 @@
-alert("APP.JS WORKING");
+
 const imageInput = document.getElementById("imageInput");
 const originalPreview = document.getElementById("originalPreview");
 const resultPreview = document.getElementById("resultPreview");
